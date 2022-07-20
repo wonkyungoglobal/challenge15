@@ -143,7 +143,7 @@ def recommend_portfolio(intent_request):
     Validation rule for investment amount. 
     """
 
-    if dollars < 5000:
+    if investment_amount < 5000:
         return build_validation_result(
             False,
                "investment_amount",
@@ -152,6 +152,19 @@ def recommend_portfolio(intent_request):
            )
     
     return build_validation_result(True, None, None)
+
+   
+   recommendation = ""
+   if risk_level = "None":
+      recommendation = "Invest in 100 percent bonds (AGG), 0 percent equities (SPY)."
+   elif risk_level = "Low": 
+      recommendation = "Invest in 60 percent bonds (AGG), 40 percent equities (SPY)."
+   elif risk_level = "Medium": 
+      recommendation = "Invest in 40 percent bonds (AGG), 60 percent equities (SPY).”
+   else:
+      recommendation = "Invest in 20 percent bonds (AGG), 80 percent equities (SPY)."
+   return recommendation
+
 
 ### Intents Dispatcher ###
 def dispatch(intent_request):
