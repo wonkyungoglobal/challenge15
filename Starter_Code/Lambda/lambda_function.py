@@ -153,18 +153,16 @@ def recommend_portfolio(intent_request):
     
     return build_validation_result(True, None, None)
 
-   
+def get_investment_recommendation(risk_level):
 
-   if risk_level = "None":
-      recommendation = "Invest in 100 percent bonds (AGG), 0 percent equities (SPY)."
-   elif risk_level = "Low": 
-      recommendation = "Invest in 60 percent bonds (AGG), 40 percent equities (SPY)."
-   elif risk_level = "Medium": 
-      recommendation = "Invest in 40 percent bonds (AGG), 60 percent equities (SPY).”
-   else:
-      recommendation = "Invest in 20 percent bonds (AGG), 80 percent equities (SPY)."
-   
+    risk_levels = {
+       "none": "100% bonds (AGG), 0% equities (SPY)",
+       "low": "60% bonds (AGG), 40% equities (SPY)",
+       "medium": "40% bonds (AGG), 60% equities (SPY)",
+       "high": "20% bonds (AGG), 80% equities (SPY)",
+     }
 
+return risk_levels
 
 ### Intents Dispatcher ###
 def dispatch(intent_request):
