@@ -35,6 +35,18 @@ else:
 return recommendation
 
 
+"""def get_investment_recommendation(risk_level):
+   """
+   "Returns an initial investment recommendation based on the risk profile.
+   """
+   risk_levels = {
+       'none': '100 percent bonds (AGG), 0 percent equities (SPY)',
+       "low": '60 percent bonds (AGG), 40 percent equities (SPY)',
+       'medium': '40 percent bonds (AGG), 60 percent equities (SPY)',
+       'high': '20 percent bonds (AGG), 80 percent equities (SPY)',
+   }
+   return risk_levels[risk_level.lower()]
+"""
 def validate_data(age, investment_amount, intent_request):
    """
    Validates the data provided by the user.
@@ -170,4 +182,4 @@ def lambda_handler(event, context):
    Route the incoming request based on intent.
    The JSON body of the request is provided in the event slot.
    """
-   return dispatch(event)
+    return dispatch(event)
