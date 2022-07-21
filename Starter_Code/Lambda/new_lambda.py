@@ -1,4 +1,4 @@
-### Required Libraries ###
+"""### Required Libraries ###"""
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ### Functionality Helper Functions ###
@@ -21,18 +21,17 @@ def build_validation_result(is_valid, violated_slot, message_content):
        "violatedSlot": violated_slot,
        "message": {"contentType": "PlainText", "content": message_content},
    }
-
-if risk_level == 'None':
-     recommendation = '100 percent bonds (AGG), 0 percent equities (SPY)'
-elif risk_level == 'Low':
-    recommendation = '60 percent bonds (AGG), 40 percent equities (SPY)'
-elif risk_level == 'Medium':
-    recommendation = '40 percent bonds (AGG), 60 percent equities (SPY)'
-else:
-    recommendation = '20 percent bonds (AGG), 80 percent equities (SPY)'
-return recommendation
-
-
+def get_investment_recommendation(risk_level):
+   """
+   Returns an initial investment recommendation based on the risk profile.
+   """
+   risk_levels = {
+       "None": "100 percent bonds (AGG), 0 percent equities (SPY)",
+       "Low": "60 percent bonds (AGG), 40 percent equities (SPY)",
+       "Medium": "40 percent bonds (AGG), 60 percent equities (SPY)",
+       "High": "20 percent bonds (AGG), 80 percent equities (SPY)",
+   }
+   return risk_levels[risk_level.lower()]
 def validate_data(age, investment_amount, intent_request):
    """
    Validates the data provided by the user.
@@ -114,6 +113,7 @@ def recommend_portfolio(intent_request):
    Performs dialog management and fulfillment for recommending a portfolio.
    """
    first_name = get_slots(intent_request)["firstName"]
+
    age = get_slots(intent_request)["age"]
    investment_amount = get_slots(intent_request)["investmentAmount"]
    risk_level = get_slots(intent_request)["riskLevel"]
@@ -152,7 +152,7 @@ def recommend_portfolio(intent_request):
            ),
        },
    )
-### Intents Dispatcher ###
+""" Intents Dispatcher """
 def dispatch(intent_request):
    """
    Called when the user specifies an intent for this bot.
