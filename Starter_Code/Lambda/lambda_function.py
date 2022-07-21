@@ -22,8 +22,6 @@ def build_validation_result(is_valid, violated_slot, message_content):
        "message": {"contentType": "PlainText", "content": message_content},
    }
 
-risk_level = get_slots(intent_request)["riskLevel"]
-recommendation = ""
 if risk_level == 'None':
      recommendation = '100 percent bonds (AGG), 0 percent equities (SPY)'
 elif risk_level == 'Low':

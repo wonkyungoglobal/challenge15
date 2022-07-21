@@ -22,7 +22,7 @@ def build_validation_result(is_valid, violated_slot, message_content):
        "message": {"contentType": "PlainText", "content": message_content},
    }
 
-risk_level = get_slots(intent_request)["riskLevel"]
+"""risk_level = get_slots(intent_request)["riskLevel"]
 recommendation = ""
 if risk_level == 'None':
      recommendation = '100 percent bonds (AGG), 0 percent equities (SPY)'
@@ -33,9 +33,9 @@ elif risk_level == 'Medium':
 else:
     recommendation = '20 percent bonds (AGG), 80 percent equities (SPY)'
 return recommendation
+"""
 
-
-"""def get_investment_recommendation(risk_level):
+def get_investment_recommendation(risk_level):
    """
    "Returns an initial investment recommendation based on the risk profile.
    """
@@ -46,7 +46,7 @@ return recommendation
        'high': '20 percent bonds (AGG), 80 percent equities (SPY)',
    }
    return risk_levels[risk_level.lower()]
-"""
+
 def validate_data(age, investment_amount, intent_request):
    """
    Validates the data provided by the user.
